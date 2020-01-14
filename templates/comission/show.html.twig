@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Comission{% endblock %}
+
+{% block body %}
+    <h1>Comission</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ comission.id }}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{{ comission.montant }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ comission.date ? comission.date|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('comission_index') }}">back to list</a>
+
+    <a href="{{ path('comission_edit', {'id': comission.id}) }}">edit</a>
+
+    {{ include('comission/_delete_form.html.twig') }}
+{% endblock %}

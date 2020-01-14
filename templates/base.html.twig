@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!--    <link rel="stylesheet" href="{{ asset('build/app.css') }}">-->
+        {% endblock %}
+         <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    
+    <title><h1> RU Relived Used</h1></title>
+    <!-- Mobile Specific Meta Tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/icon.png') }}">
+    <!-- Bootsrap CSS -->
+    <link rel="tylesheet" media="screen" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" media="screen" href="{{ asset('assets/css/font-awesome.min.css') }}">
+    <!-- Feather Icons CSS -->
+    <link rel="stylesheet" media="screen" href="{{ asset('assets/css/feather-icons.css') }}">
+    <!-- Pixeden Icons CSS -->
+    <link rel="stylesheet" media="screen" href="{{ asset('assets/css/pixeden.css') }}">
+    <!-- Social Icons CSS -->
+    <link rel="stylesheet" media="screen" href="{{ asset('assets/css/socicon.css') }}">
+    <!-- PhotoSwipe CSS -->
+    <link rel="stylesheet" media="screen" href="{{ asset('assets/css/photoswipe.css') }}">
+    <!-- Izitoast Notification CSS -->
+    <link rel="stylesheet" media="screen" href="{{ asset('assets/css/izitoast.css') }}">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" media="screen" href="{{ asset('assets/css/style.css') }}">
+    </head>
+    <body>
+<!-- Start Page Preloader -->
+<div id="loading">
+    <div id="loading-center">
+        <div id="loading-center-absolute">
+            <div class="object" id="object_four"></div>
+            <div class="object" id="object_three"></div>
+            <div class="object" id="object_two"></div>
+            <div class="object" id="object_one"></div>
+        </div>
+    </div>
+</div>
+<!-- End Page Preloader -->
+<!-- Start Shop Category Menu -->
+<div class="offcanvas-container" id="shop-categories">
+    <div class="offcanvas-header">
+        <h3 class="offcanvas-title">Shop Categories</h3>
+    </div>
+    <nav class="offcanvas-menu">
+        <ul class="menu">
+           
+  
+            <li class="has-children">
+                <span>
+                    <a href="{{path('user_new')}}" ><span>Account</span></a>
+                    <span class="sub-menu-toggle"></span>
+                </span>
+            </li>
+     
+        </ul>
+    </nav>
+</div>
+<!-- End Mobile Menu -->
+<!-- Start TopBar -->
+<div class="topbar">
+    <div class="topbar-column">
+        <a class="hidden-md-down" href="#"><i class="fa fa-phone" ></i>&nbsp;95364953</a>
+        <a class="hidden-md-down" href="#"><i class="fa fa-envelope-o"></i>&nbsp;info@shop.com</a>
+        <a class="hidden-md-down" href="#"><i class="fa fa-map-marker"></i> Riath City, Sousse , Tunisia</a>
+    </div>
+    <div class="topbar-column">
+  
+        <a class="social-button sb-facebook shape-none sb-dark soc-border" 
+        href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+        <a class="social-button sb-twitter shape-none sb-dark" href="#" 
+        target="_blank"><i class="fa fa-twitter"></i></a>
+        <a class="social-button sb-instagram shape-none sb-dark" href="#" 
+        target="_blank"><i class="fa fa-instagram"></i></a>
+    </div>
+</div>
+<!-- End TopBar -->
+<!-- Start NavBar -->
+<header class="navbar navbar-sticky">
+    <!-- Start Search -->
+    <form class="site-search" method="get">
+        <input type="text" name="q" placeholder="Type to search...">
+        <div class="search-tools">
+            <span class="clear-search">Clear</span>
+            <span class="close-search"><i class="icon-cross"></i></span>
+        </div>
+    </form>
+    <!-- End Search -->
+    <!-- Start Logo -->
+    <div class="site-branding">
+        <div class="inner">
+            <a class="site-logo"  href="{{path('home')}}"><img src="{{ asset('assets/images/icon.ico') }}"> </a>
+    
+        <p>  </p>
+        <p> </p>
+            <p>  RU Relive Used</p>
+   </div>
+    </div>
+    <!-- End Logo -->
+    <!-- Start Nav Menu -->
+    <nav class="site-menu">
+        <ul>
+            <li class="active">
+                <a href="{{path('home')}}"><span>Home</span></a>
+            </li>
+            
+        
+           {% if app.user %}
+               <li>
+                <a href="{{ path('app_logout') }}" ><span>Log out, {{ app.user.username }}</span></a>
+              
+            </li>
+    <li>
+                <a href="{{ path('product_new') }}" ><span>Add a product</span></a>
+              
+            </li>
+    {% else %}
+         
+   <li>
+                <a href="{{ path('app_register') }}" ><span> Account</span></a>
+              
+            </li>
+               <li>
+                <a href="{{ path('app_login') }}" ><span> Log in</span></a>
+              
+            </li>
+           {% endif %}
+
+
+        
+            <li>
+            
+            </li>
+    
+            <li>
+                
+        </ul>
+    
+    </div>
+    </nav>
+    <!-- End Nav Menu -->
+ 
+</header>
+<!-- End NavBar -->
+
+        {% block body %}
+                         
+ 
+{% endblock %}
+      
+
+<!-- Start Back To Top -->
+
+<!-- End Back To Top -->
+
+    <!-- Start Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <!-- Start Footer Info -->
+            <div class="row">
+                <!-- Start Contact Info -->
+                <div class="col-lg-3 col-md-6">
+                    <section class="widget widget-light-skin">
+                        <h3 class="widget-title">RU Contact Info</h3>
+                        <p class="text-white"><i class="fa fa-phone"></i> 95086174</p>
+                        <p class="text-white"><i class="fa fa-envelope-o"></i> info@ru.com</p>
+                        <p class="text-white"><i class="fa fa-map-marker"></i>Riath City , Sousse , Tunisie</p>
+                        <ul class="list-unstyled text-sm text-white">
+                            <li><span class="opacity-50">Mon - Fri: </span>09:00 - 18:00</li>
+                            <li><span class="opacity-50">Sat - Sun: </span>10.00 - 15:00</li>
+                        </ul>
+                    </section>
+                </div>
+                <!-- End Contact Info -->
+                <!-- Start Mobile Apps -->
+                <div class="col-lg-3 col-md-6">
+                    <section class="widget widget-links widget-light-skin">
+                        <h3 class="widget-title">Our Services</h3>
+                                                <ul>
+                            <li><a href="#">Sell Your Products Here </a></li>
+                            <li><a href="#">Buy Used Products </a></li>
+                            
+                        </ul>
+
+            
+                    </section>
+                </div>
+                <!-- End Mobile Apps -->
+                <!-- Start About Us -->
+                <div class="col-lg-3 col-md-6">
+                    <section class="widget widget-links widget-light-skin">
+                        <h3 class="widget-title">About Us</h3>
+                         <ul>
+                            <li><a href="#">Our Company</a></li>
+                            <li><a href="#">Our Team</a></li>
+                            <li><a href="#">Our Products</a></li>
+                            <li><a href="#">Our Clients</a></li>
+                        </ul>
+                        
+                    </section>
+                </div>
+                <!-- End About Us -->
+                <!-- Start Account Info -->
+                <div class="col-lg-3 col-md-6">
+                    <section class="widget widget-links widget-light-skin">
+                        <h3 class="widget-title">Account Info</h3>
+                           <ul>
+                            <li><a href="#">Active Session :</a></li>
+                        </ul>
+                 
+                    </section>
+                </div>
+                <!-- End Account Info -->
+            </div>
+            <!-- End Footer Info -->
+            <hr class="hr-light">
+            <!-- Start Copyright -->
+            <p class="footer-copyright text-center">© 2020 RU | All rights reserved</p>
+            <!-- End Copyright -->
+        </div>
+    </footer>
+    <!-- End Footer -->
+</div>
+<!-- Start Photoswipe Container -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Photoswipe Container -->
+
+
+
+    </body>
+
+    {% block javascripts %}
+        <!-- Modernizr JS -->
+<script src="/assets/js/modernizr.min.js"></script>
+<!-- JQuery JS -->
+<script src="/assets/js/jquery.min.js"></script>
+<!-- Popper JS -->
+<script src="/assets/js/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="/assets/js/bootstrap.min.js"></script>
+<!-- CountDown JS -->
+<script src="/assets/js/count.min.js"></script>
+<!-- Gmap JS -->
+<script src="/assets/js/gmap.min.js"></script>
+<!-- ImageLoader JS -->
+<script src="/assets/js/imageloader.min.js"></script>
+<!-- Isotope JS -->
+<script src="/assets/js/isotope.min.js"></script>
+<!-- NouiSlider JS -->
+<script src="/assets/js/nouislider.min.js"></script>
+<!-- OwlCarousel JS -->
+<script src="/assets/js/owl.carousel.min.js"></script>
+<!-- PhotoSwipe UI JS -->
+<script src="/assets/js/photoswipe-ui-default.min.js"></script>
+<!-- PhotoSwipe JS -->
+<script src="/assets/js/photoswipe.min.js"></script>
+<!-- Velocity JS -->
+<script src="/assets/js/velocity.min.js"></script>
+<!-- Main JS -->
+<script src="/assets/js/script.js"></script><script src="/assets/js/custom.js"></script>
+
+    {% endblock %}
+
+</html> 
